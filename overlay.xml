@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<repositories version="1.0">
+  <repo quality="experimental" status="unofficial">
+    <name>overlay</name>
+    <homepage>https://github.com/Barthalion/overlay</homepage>
+    <owner>
+      <name>Barthalion</name>
+    </owner>
+    <owner>
+      <name>mariom</name>
+    </owner>
+    <source type="git">git://github.com/Barthalion/overlay.git</source>
+  </repo>
+</repositories>
