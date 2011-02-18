@@ -25,10 +25,6 @@ RDEPEND="${COMMON_DEPEND}
 DEPEND="${COMMON_DEPEND}
 	dev-util/pkgconfig"
 
-src_prepare() {
-	epatch "${FILESDIR}"/${P}-canvas-fix.patch
-}
-
 src_configure() {
 	econf \
 		--disable-dependency-tracking \
