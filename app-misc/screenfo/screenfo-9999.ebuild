@@ -14,7 +14,7 @@ SRC_URI=""
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND=">=dev-lang/perl-5.10
  =dev-perl/Term-ExtendedColor-9999"

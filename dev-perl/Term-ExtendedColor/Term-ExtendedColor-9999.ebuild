@@ -14,7 +14,7 @@ SRC_URI=""
 
 LICENSE="GPL"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND=">=dev-lang/perl-5.10"
 DEPEND="${RDEPEND}"
