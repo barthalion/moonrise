@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <layman>
   <overlay name="overlay" quality="experimental" status="unofficial"
-    type="git" src="git://github.com/Barthalion/overlay.git"
-    contact="barthalion@gmail.com" contact="11mariom@gmail.com">
+    type="git" src="git://github.com/Barthalion/overlay.git">
     <link>https://github.com/Barthalion/overlay</link>
     <description>Bleeding edge, experimental overlay for Gentoo</description>
   </overlay>
