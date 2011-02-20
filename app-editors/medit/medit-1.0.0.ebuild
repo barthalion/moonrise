@@ -22,8 +22,19 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
   econf
+  dodoc AUTHORS NEWS README THANKS
 }
 
 src_install() {
   emake DESTDIR="${D}" install || die
+}
+
+pkg_postinst() {
+  xdg-icon-resource forceupdate
+  update-mime-database /usr/share/mime/
+}
+
+pkg_postrm() {
+  xdg-icon-resource forceupdate
+  update-mime-database /usr/share/mime/
 }
