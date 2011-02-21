@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <layman>
-  <overlay name="overlay" quality="experimental" status="unofficial"
-    type="git" src="git://github.com/Barthalion/overlay.git">
-    <link>https://github.com/Barthalion/overlay</link>
+  <overlay name="moonrise" quality="experimental" status="unofficial"
+    type="git" src="git://github.com/Barthalion/moonrise.git">
+    <link>https://github.com/Barthalion/moonrise</link>
     <description>Bleeding edge, experimental overlay for Gentoo</description>
   </overlay>
 </layman>
