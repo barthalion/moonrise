@@ -1,0 +1,11 @@
+# Barthalion (20 Feb 2011)
+# Old and deprecated, only for testing.
+=app-editors/medit-0.9.4
+
+# mariom (12 Mar 2011)
+# git version should be masked
+=app-backup/baskup-sh-9999
+=app-misc/screenfo-9999
+=dev-perl/Term-ExtendedColor-9999
+=x11-plugins/shifty-9999
+=x11-wm/wmfs-9999
