@@ -13,7 +13,7 @@ HOMEPAGE="http://pyropus.ca/software/getmail/"
 SRC_URI="http://pyropus.ca/software/getmail/old-versions/${P}.tar.gz"
 
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="4"
 KEYWORDS="alpha amd64 ppc sparc x86 ppc-macos x86-macos x64-solaris"
 IUSE=""
 
