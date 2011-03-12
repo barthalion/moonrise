@@ -1,0 +1,19 @@
+*** makefileorig	2011-03-12 21:53:27.000000000 +0100
+--- makefile	2011-03-12 21:54:35.000000000 +0100
+***************
+*** 16,22 ****
+  %.o : %.c
+  	$(CC) $(CFLAGS) -c $<
+  install:
+! 	cp $(EXECUTABLE) ~/bin
+  clean:
+  	rm -f ${OBJECTS} *~
+  	@echo "all cleaned up!"
+--- 16,22 ----
+  %.o : %.c
+  	$(CC) $(CFLAGS) -c $<
+  install:
+! 	cp $(EXECUTABLE) ${DESTDIR}/usr/bin/${EXECUTABLE}
+  clean:
+  	rm -f ${OBJECTS} *~
+  	@echo "all cleaned up!"
