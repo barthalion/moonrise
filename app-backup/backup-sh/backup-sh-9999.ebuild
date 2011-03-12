@@ -20,8 +20,7 @@ RDEPEND="app-backup/rdiff-backup"
 DEPEND="${RDEPEND}"
 
 src_install() {
-	mkdir ${D}usr
-	mkdir ${D}usr/bin/
+	mkdir -p ${D}usr/bin/
 	mkdir ${D}etc/
 
 	chmod +x ${WORKDIR}/${P}/backup.sh
