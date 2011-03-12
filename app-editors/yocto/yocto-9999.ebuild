@@ -19,3 +19,6 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="sys-libs/ncurses"
 DEPEND="${RDEPEND}"
 
+src_install() {
+	emake install DESTDIR="${D}"
+}
