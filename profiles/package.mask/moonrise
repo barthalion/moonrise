@@ -5,6 +5,7 @@
 # mariom (12 Mar 2011)
 # git version should be masked
 =app-backup/baskup-sh-9999
+=app-editors/yocto-9999
 =app-misc/screenfo-9999
 =dev-perl/Term-ExtendedColor-9999
 =x11-wm/wmfs-9999
