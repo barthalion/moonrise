@@ -13,7 +13,7 @@ DESCRIPTION="Minimalistic ncurses-based text editor. It is smaller than pico and
 HOMEPAGE="https://github.com/akrennmair/yocto"
 SRC_URI=""
 
-LICENSE="THE BEER-WARE LICENSE"
+LICENSE="BEER-WARE"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
