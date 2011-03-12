@@ -12,7 +12,7 @@ DESCRIPTION="another ncurses sudoku game"
 HOMEPAGE="https://github.com/cyrusmetcalf/Doku"
 SRC_URI=""
 
-LICENSE=""
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
