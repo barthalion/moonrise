@@ -22,8 +22,7 @@ RDEPEND=">=dev-lang/perl-5.10
 DEPEND="${RDEPEND}"
 
 src_prepare() {
-	cd ${WORKDIR}/${P}
-	/usr/bin/perl Makefile.PL
+	epatch ${FILESDIR}/${P}.patch
 }
 
 src_install() {
