@@ -7,7 +7,7 @@ EAPI=2
 inherit git
 
 EGIT_REPO_URI="git://github.com/trapd00r/Term-ExtendedColor.git"
-EGIT_COMMIT="v${PV}"
+EGIT_COMMIT="v${PV}-cpan"
 
 DESCRIPTION="perl module"
 HOMEPAGE="https://github.com/trapd00r/Term-ExtendedColor"
