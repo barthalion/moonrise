@@ -35,11 +35,11 @@ RDEPEND=">=dev-libs/glib-2.20.0
 	hal? ( sys-apps/hal )
 	gnome? ( gnome-base/gvfs )
 	webkit? ( net-libs/webkit-gtk )
-	jpeg? ( >=media-libs/jpeg-6b-r2 )
+	jpeg? ( >=virtual/jpeg-0 )
 	exif? ( >=media-libs/libexif-0.6.15 )
 	lcms? ( media-libs/lcms )
 	mng? ( media-libs/libmng )
-	pdf? ( >=app-text/poppler-glib-0.3.1[cairo] )
+	pdf? ( >=app-text/poppler-0.14.5[cairo] )
 	png? ( >=media-libs/libpng-1.2.2 )
 	python?	( >=dev-lang/python-2.5.0
 		>=dev-python/pygtk-2.10.4 )

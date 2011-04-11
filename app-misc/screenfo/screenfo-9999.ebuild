@@ -26,7 +26,6 @@ src_prepare() {
 }
 
 src_install() {
-	echo ${D}
 	emake DESTDIR="${D}" install
 
 	mkdir ${D}/etc/
