@@ -35,7 +35,7 @@ RDEPEND=">=dev-libs/glib-2.20.0
 	hal? ( sys-apps/hal )
 	gnome? ( gnome-base/gvfs )
 	webkit? ( net-libs/webkit-gtk )
-	jpeg? ( >=virtual/jpeg-0 )
+	jpeg? ( virtual/jpeg )
 	exif? ( >=media-libs/libexif-0.6.15 )
 	lcms? ( media-libs/lcms )
 	mng? ( media-libs/libmng )
