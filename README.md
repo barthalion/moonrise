@@ -5,6 +5,7 @@ Simple overlay created by Barthalion and mariom. Mostly bleeding edge, dangerous
 ## How to use
 ### layman
 First emerge layman with git support, of course. Then:  
+
     layman -a moonrise
 
 ### Otherwise
