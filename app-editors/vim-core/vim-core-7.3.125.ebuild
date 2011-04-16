@@ -11,7 +11,7 @@ VIMRC_FILE_SUFFIX="-r4"
 
 SRC_URI="ftp://ftp.vim.org/pub/vim/unix/vim-${VIM_VERSION}.tar.bz2
 	http://dev.gentoo.org/~lack/vim/${VIM_CORE_GENTOO_PATCHES}
-	http://barthalion.rocik.net/tmp/vim/${VIM_ORG_PATCHES}"
+	http://barthalion.rocik.net/moonrise/${VIM_ORG_PATCHES}"
 
 S="${WORKDIR}/vim${VIM_VERSION/.}"
 DESCRIPTION="vim and gvim shared files"

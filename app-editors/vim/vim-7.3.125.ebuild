@@ -8,7 +8,7 @@ inherit vim
 VIM_ORG_PATCHES="vim-patches-${PV}.tar.bz2"
 
 SRC_URI="ftp://ftp.vim.org/pub/vim/unix/vim-${VIM_VERSION}.tar.bz2
-	http://barthalion.rocik.net/tmp/vim/${VIM_ORG_PATCHES}"
+	http://barthalion.rocik.net/moonrise/${VIM_ORG_PATCHES}"
 
 S="${WORKDIR}/vim${VIM_VERSION/.}"
 DESCRIPTION="Vim, an improved vi-style text editor"
