@@ -4,7 +4,8 @@ Simple overlay created by Barthalion and mariom. Mostly bleeding edge, dangerous
 
 ## How to use
 ### layman
-    layman -o http://github.com/Barthalion/moonrise/raw/master/overlay.xml -f -a moonrise 
+First emerge layman with git support, of course. Then:
+    layman -a moonrise
 
 ### Otherwise
 1. ``git clone git://github.com/Barthalion/moonrise.git``
