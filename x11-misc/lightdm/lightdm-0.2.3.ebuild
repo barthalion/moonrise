@@ -30,7 +30,7 @@ DEPEND="${RDEPEND}
 	nls? ( dev-util/intltool )"
 
 src_prepare() {
-	epatch "${FILESDIR}"/${P}-gentoo.patch
+	epatch "${FILESDIR}"/${PN}-gentoo.patch
 	sed -e "/^SUBDIRS/d" -i data/Makefile.am || die
 	eautoreconf
 }
