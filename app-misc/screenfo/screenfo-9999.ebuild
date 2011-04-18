@@ -17,7 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND=">=dev-lang/perl-5.10
- =dev-perl/Term-ExtendedColor-9999"
+ >=dev-perl/Term-ExtendedColor-0.182"
 DEPEND="${RDEPEND}"
 
 src_prepare() {
