@@ -11,7 +11,7 @@ SRC_URI="http://cz.binaries.openttd.org/openttd/binaries/releases/${PV}/${P}-sou
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm ppc ppc64 x86"
+KEYWORDS="amd64 x86"
 IUSE="aplaymidi debug dedicated iconv icu lzo +openmedia +png +timidity +truetype zlib"
 
 DEPEND="
