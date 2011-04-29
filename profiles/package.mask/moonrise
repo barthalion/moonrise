@@ -10,3 +10,7 @@
 =dev-perl/Term-ExtendedColor-9999
 =games-puzzle/Doku-9999
 =x11-wm/wmfs-9999
+
+# mariom (29 Apr 2011)
+# partial not work?
+=x11-misc/lightdm-0.3.2
