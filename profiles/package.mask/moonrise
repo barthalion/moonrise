@@ -13,5 +13,6 @@
 =x11-wm/wmfs-9999
 
 # mariom (29 Apr 2011)
-# partial not work?
+# due to bug #768795 on lauchpad
 =x11-misc/lightdm-0.3.2
+=x11-misc/lightdm-0.3.4
