@@ -1,0 +1,105 @@
+From 5c5171d2de5f4d3b7926f16faa70b16ccf434c86 Mon Sep 17 00:00:00 2001
+From: xalduin <xalduin@gmail.com>
+Date: Sat, 12 Feb 2011 22:22:02 -0500
+Subject: [PATCH 1/3] Will now use system wavpack and zlib libraries if available when
+ compiling
+
+---
+ bam.lua                     |   15 +++++++++++++--
+ src/engine/client/sound.cpp |   10 +++++++++-
+ 2 files changed, 22 insertions(+), 3 deletions(-)
+
+diff --git a/bam.lua b/bam.lua
+index 0c953e8..ade4ae4 100644
+--- a/bam.lua
++++ b/bam.lua
+@@ -9,6 +9,7 @@ config = NewConfig()
+ config:Add(OptCCompiler("compiler"))
+ config:Add(OptTestCompileC("stackprotector", "int main(){return 0;}", "-fstack-protector -fstack-protector-all"))
+ config:Add(OptLibrary("zlib", "zlib.h", false))
++config:Add(OptLibrary("wavpack", "wavpack/wavpack.h", false))
+ config:Add(SDL.OptFind("sdl", true))
+ config:Add(FreeType.OptFind("freetype", true))
+ config:Finalize("config.lua")
+@@ -165,7 +166,7 @@ function build(settings)
+ 	end
+ 	
+ 	-- compile zlib if needed
+-	if config.zlib.value == 1 then
++	if config.zlib.value == true then
+ 		settings.link.libs:Add("z")
+ 		if config.zlib.include_path then
+ 			settings.cc.includes:Add(config.zlib.include_path)
+@@ -176,8 +177,18 @@ function build(settings)
+ 		settings.cc.includes:Add("src/engine/external/zlib")
+ 	end
+ 
++	if config.wavpack.value == true then
++		settings.link.libs:Add("wavpack")
++		if config.wavpack.include_path then
++			settings.cc.includes:Add(config.wavpack.include_path)
++		end
++		wavpack = {}
++	else
++		wavpack = Compile(settings, Collect("src/engine/external/wavpack/*.c"))
++		settings.cc.includes:Add("src/engine/external/") --The header is wavpack/wavpack.h so include the external folder
++	end
++
+ 	-- build the small libraries
+-	wavpack = Compile(settings, Collect("src/engine/external/wavpack/*.c"))
+ 	pnglite = Compile(settings, Collect("src/engine/external/pnglite/*.c"))
+ 	
+ 	-- build game components
+diff --git a/src/engine/client/sound.cpp b/src/engine/client/sound.cpp
+index 55ca293..e38ad32 100644
+--- a/src/engine/client/sound.cpp
++++ b/src/engine/client/sound.cpp
+@@ -10,7 +10,7 @@
+ #include "sound.h"
+ 
+ extern "C" { // wavpack
+-	#include <engine/external/wavpack/wavpack.h>
++	#include <wavpack/wavpack.h>
+ }
+ #include <math.h>
+ 
+@@ -328,19 +328,25 @@ int CSound::LoadWV(const char *pFilename)
+ 	if(!m_pStorage)
+ 		return -1;
+ 
++	#ifndef WAVPACK_H
+ 	ms_File = m_pStorage->OpenFile(pFilename, IOFLAG_READ, IStorage::TYPE_ALL);
+ 	if(!ms_File)
+ 	{
+ 		dbg_msg("sound/wv", "failed to open file. filename='%s'", pFilename);
+ 		return -1;
+ 	}
++	#endif
+ 
+ 	SampleID = AllocID();
+ 	if(SampleID < 0)
+ 		return -1;
+ 	pSample = &m_aSamples[SampleID];
+ 
++	#ifndef WAVPACK_H
+ 	pContext = WavpackOpenFileInput(ReadData, aError);
++	#else
++	pContext = WavpackOpenFileInput(pFilename, aError, 0, 0);
++	#endif
+ 	if (pContext)
+ 	{
+ 		int m_aSamples = WavpackGetNumSamples(pContext);
+@@ -395,8 +401,10 @@ int CSound::LoadWV(const char *pFilename)
+ 		dbg_msg("sound/wv", "failed to open %s: %s", pFilename, aError);
+ 	}
+ 
++	#ifndef WAVPACK_H
+ 	io_close(ms_File);
+ 	ms_File = NULL;
++	#endif
+ 
+ 	if(g_Config.m_Debug)
+ 		dbg_msg("sound/wv", "loaded %s", pFilename);
+-- 
+1.7.3.4
+

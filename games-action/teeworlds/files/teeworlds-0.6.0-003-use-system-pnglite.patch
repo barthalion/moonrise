@@ -1,0 +1,113 @@
+From f4d073f439d50f49055ab75f0f1242b124f9aba2 Mon Sep 17 00:00:00 2001
+From: Bruno Tarquini <btarquini@gmail.com>
+Date: Tue, 12 Apr 2011 22:53:30 +0200
+Subject: [PATCH 3/3] use system pnglite if available. link only the client with  pnglite and wavpack
+
+---
+ bam.lua                         |   33 +++++++++++++++++++++------------
+ src/engine/client/graphics.cpp  |    2 +-
+ src/tools/dilate.cpp            |    2 +-
+ src/tools/tileset_borderfix.cpp |    2 +-
+ 4 files changed, 24 insertions(+), 15 deletions(-)
+
+diff --git a/bam.lua b/bam.lua
+index ade4ae4..c0c2211 100644
+--- a/bam.lua
++++ b/bam.lua
+@@ -9,6 +9,7 @@ config = NewConfig()
+ config:Add(OptCCompiler("compiler"))
+ config:Add(OptTestCompileC("stackprotector", "int main(){return 0;}", "-fstack-protector -fstack-protector-all"))
+ config:Add(OptLibrary("zlib", "zlib.h", false))
++config:Add(OptLibrary("pnglite", "pnglite.h", false))
+ config:Add(OptLibrary("wavpack", "wavpack/wavpack.h", false))
+ config:Add(SDL.OptFind("sdl", true))
+ config:Add(FreeType.OptFind("freetype", true))
+@@ -177,26 +178,34 @@ function build(settings)
+ 		settings.cc.includes:Add("src/engine/external/zlib")
+ 	end
+ 
++	-- build game components
++	engine_settings = settings:Copy()
++	server_settings = engine_settings:Copy()
++	client_settings = engine_settings:Copy()
++	launcher_settings = engine_settings:Copy()
++
++	if config.pnglite.value == true then
++		client_settings.link.libs:Add("pnglite")
++		if config.pnglite.include_path then
++			client_settings.cc.includes:Add(config.pnglite.include_path)
++		end
++		pnglite = {}
++	else
++		pnglite = Compile(settings, Collect("src/engine/external/pnglite/*.c"))
++		client_settings.cc.includes:Add("src/engine/external/pnglite")
++	end
++
+ 	if config.wavpack.value == true then
+-		settings.link.libs:Add("wavpack")
++		client_settings.link.libs:Add("wavpack")
+ 		if config.wavpack.include_path then
+-			settings.cc.includes:Add(config.wavpack.include_path)
++			client_settings.cc.includes:Add(config.wavpack.include_path)
+ 		end
+ 		wavpack = {}
+ 	else
+ 		wavpack = Compile(settings, Collect("src/engine/external/wavpack/*.c"))
+-		settings.cc.includes:Add("src/engine/external/") --The header is wavpack/wavpack.h so include the external folder
++		client_settings.cc.includes:Add("src/engine/external/") --The header is wavpack/wavpack.h so include the external folder
+ 	end
+ 
+-	-- build the small libraries
+-	pnglite = Compile(settings, Collect("src/engine/external/pnglite/*.c"))
+-	
+-	-- build game components
+-	engine_settings = settings:Copy()
+-	server_settings = engine_settings:Copy()
+-	client_settings = engine_settings:Copy()
+-	launcher_settings = engine_settings:Copy()
+-
+ 	if family == "unix" then
+    		if platform == "macosx" then
+ 			client_settings.link.frameworks:Add("OpenGL")
+diff --git a/src/engine/client/graphics.cpp b/src/engine/client/graphics.cpp
+index 99f5e09..2c867ee 100644
+--- a/src/engine/client/graphics.cpp
++++ b/src/engine/client/graphics.cpp
+@@ -19,7 +19,7 @@
+ #endif
+ 
+ #include <base/system.h>
+-#include <engine/external/pnglite/pnglite.h>
++#include <pnglite.h>
+ 
+ #include <engine/shared/config.h>
+ #include <engine/graphics.h>
+diff --git a/src/tools/dilate.cpp b/src/tools/dilate.cpp
+index b1b60ac..b773ceb 100644
+--- a/src/tools/dilate.cpp
++++ b/src/tools/dilate.cpp
+@@ -2,7 +2,7 @@
+ /* If you are missing that file, acquire a complete release at teeworlds.com.                */
+ #include <base/system.h>
+ #include <base/math.h>
+-#include <engine/external/pnglite/pnglite.h>
++#include <pnglite.h>
+ 
+ typedef struct
+ {
+diff --git a/src/tools/tileset_borderfix.cpp b/src/tools/tileset_borderfix.cpp
+index d28e307..b060f0d 100644
+--- a/src/tools/tileset_borderfix.cpp
++++ b/src/tools/tileset_borderfix.cpp
+@@ -2,7 +2,7 @@
+ /* If you are missing that file, acquire a complete release at teeworlds.com.                */
+ #include <stdlib.h>
+ #include <base/system.h>
+-#include <engine/external/pnglite/pnglite.h>
++#include <pnglite.h>
+ 
+ typedef struct
+ {
+-- 
+1.7.3.4
+
