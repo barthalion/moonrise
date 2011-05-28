@@ -13,12 +13,12 @@ SRC_URI="http://forja.rediris.es/frs/download.php/2051/${P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="gtk"
+IUSE="gtk ocr"
 
 RDEPEND="dev-lang/python
 	gtk? ( dev-python/pygtk
 		gnome-base/librsvg )
-	app-text/tesseract
+	ocr? ( app-text/tesseract )
 	dev-python/imaging"
 
 src_compile() { :; }
