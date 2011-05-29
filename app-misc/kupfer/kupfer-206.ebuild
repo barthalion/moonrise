@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=3
-inherit waf-utils
+inherit waf-utils eutils
 
 DESCRIPTION="kupfer, a convenient command and access tool"
 HOMEPAGE="http://kaizer.se/wiki/kupfer/"
@@ -35,6 +35,10 @@ RDEPEND="${COMMON_DEPEND}
 	nautilus? ( gnome-base/nautilus )"
 
 S=${WORKDIR}/${MY_P}
+
+src_prepare() {
+	epatch "${FILESDIR}/${P}-xfce4-terminal.patch"
+}
 
 src_configure() {
 	local myopts=""
