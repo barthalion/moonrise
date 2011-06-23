@@ -15,3 +15,7 @@
 # due to bug #768795 on lauchpad
 =x11-misc/lightdm-0.3.2
 =x11-misc/lightdm-0.3.4
+
+# mariom (23 Jun 2011)
+# alpha version
+=www-client/firefox-bin-6.0_alpha2
