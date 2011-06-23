@@ -15,7 +15,7 @@ NOSHORTLANGS="en-GB es-AR es-CL es-MX pt-BR zh-CN zh-TW"
 MY_PN="${PN/-bin}"
 MY_PV="${PV/_alpha/a}"
 MY_P="${MY_PN}-${MY_PV}"
-REL_URI="http://ftp.mozilla.org/pub/mozilla.org/${MY_PN}/nightly/2011-06-21-04-mozilla-aurora-l10n"
+REL_URI="http://ftp.mozilla.org/pub/mozilla.org/${MY_PN}/nightly/2011-06-22-03-mozilla-central-l10n"
 
 for lang in ${LANGS}
 do
