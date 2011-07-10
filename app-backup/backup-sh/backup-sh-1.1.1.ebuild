@@ -15,7 +15,7 @@ SRC_URI=""
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="app-backup/rdiff-backup"
 DEPEND="${RDEPEND}"
