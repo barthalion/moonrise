@@ -1,6 +1,7 @@
 # Copyright 1999-2005 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
+EAPI="3"
 inherit distutils
 
 DESCRIPTION="Integrated Development Environment for Gentoo Linux ebuilds"
