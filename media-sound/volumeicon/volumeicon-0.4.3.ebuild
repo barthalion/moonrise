@@ -10,12 +10,12 @@ SRC_URI="http://www.softwarebakery.com/maato/files/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="media-libs/alsa-lib
-      >=x11-libs/gtk+-2.16
-      x11-terms/xterm"
+	  >=x11-libs/gtk+-2.16
+	  x11-libs/libX11"
 DEPEND="${RDEPEND}"
 
 src_install() {
