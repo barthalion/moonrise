@@ -15,6 +15,6 @@ First emerge layman with git support, of course. Then:
 3. Edit ``/etc/portage/package.keywords`` and unmask desired packages
 
 ### Mirrors
-There is also available [mirror](http://repo.or.cz/w/moonrise.git) hosted on [repo.or.cz](http://repo.or.cz/).  
-Repository adress: ``git://repo.or.cz/moonrise.git``  
+There is also a [mirror](http://repo.or.cz/w/moonrise.git) available hosted on [repo.or.cz](http://repo.or.cz/).  
+Repository address: ``git://repo.or.cz/moonrise.git``  
 overlay.xml: ``http://repo.or.cz/w/moonrise.git/blob_plain/HEAD:/overlay.xml``  
