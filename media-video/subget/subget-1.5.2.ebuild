@@ -6,7 +6,7 @@ EAPI="3"
 SUPPORT_PYTHON_ABIS="1"
 PV="1.5.1"
 
-inherit git distutils
+inherit git-2 distutils
 
 MY_P="subget-${PV}"
 

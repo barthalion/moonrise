@@ -4,7 +4,7 @@
 
 EAPI=2
 
-inherit git
+inherit git-2
 
 EGIT_REPO_URI="git://github.com/trapd00r/Term-ExtendedColor.git"
 
