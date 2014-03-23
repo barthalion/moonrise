@@ -29,8 +29,6 @@ DEPEND="app-arch/xz-utils
 	sys-fs/sshfs-fuse
 	net-analyzer/nmap
 	net-fs/samba
-	app-arch/bzip2
-	sys-apps/util-linux
 	net-misc/sshpass
 RDEPEND="${DEPEND}
 	btrfs? ( sys-fs/btrfs-progs )
