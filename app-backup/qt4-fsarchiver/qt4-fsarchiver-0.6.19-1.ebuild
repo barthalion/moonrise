@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+
 EAPI="4"
 
 inherit qt4-r2 versionator
@@ -15,7 +16,7 @@ SRC_URI="mirror://sourceforge/${PN}/source/${MY_P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="btrfs jfs ntfs reiser4 reiserfs xfs"
+IUSE=""+onbydefault" btrfs jfs ntfs reiser4 reiserfs xfs"
 
 DEPEND="app-arch/xz-utils
 	app-backup/fsarchiver[lzma,lzo]
@@ -25,6 +26,12 @@ DEPEND="app-arch/xz-utils
 	>=sys-fs/e2fsprogs-1.41.4
 	x11-libs/qt-core:4
 	x11-libs/qt-gui:4"
+	sys-fs/sshfs-fuse
+	net-analyzer/nmap
+	net-fs/samba
+	app-arch/bzip2
+	sys-apps/util-linux
+	net-misc/sshpass
 RDEPEND="${DEPEND}
 	btrfs? ( sys-fs/btrfs-progs )
 	jfs? ( sys-fs/jfsutils )
@@ -32,7 +39,7 @@ RDEPEND="${DEPEND}
 	reiser4? ( sys-fs/reiser4progs )
 	reiserfs? ( sys-fs/reiserfsprogs )
 	xfs? ( sys-fs/xfsprogs )"
-
+	
 S="${WORKDIR}/${PN}"
 
 src_prepare() {
